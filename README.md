@@ -86,5 +86,43 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ☝️ after this add the load_dotenv
 load_dotenv(BASE_DIR / ".env")
 ```
+- Chanfe the `SECRET_KEY`
+```
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "django-insecure-classroom-only-not-for-production-12345",
+)
+```
+- add the `INSTALLED_APPS` at the end of array
+```
+# new INSTALLED_APPS
+    "corsheaders",
+    "rest_framework",
+    "api",
+```
+- add the `MIDDLEWARE` at the beginig of the array
+```
+ # the added middleware must be before the original
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+```
+- Replace the generated DATABASES setting:
+```
+DATABASES = {
+    "default": {
+        "ENGINE": os.getenv(
+            "DATABASE_ENGINE", "django.db.backends.postgresql"
+        ),
+        "NAME": os.getenv("DATABASE_NAME", "hoot_api"),
+        "USER": os.getenv("DATABASE_USER", ""),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD", ""),
+        "HOST": os.getenv("DATABASE_HOST", "localhost"),
+        "PORT": os.getenv("DATABASE_PORT", "5432"),
+    }
+}
+```
+
 
 
