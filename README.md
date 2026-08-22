@@ -36,10 +36,14 @@ createdb students_api
 django-admin startproject student_api .
 python manage.py startapp api
 ```
-### the project structure 
-- this almost how it will look like
-- Request ➡️ Main URLs (student_api/urls.py) ➡️ App URLs (api/urls.py) ➡️ View = Controllers (api/views.py) ➡️ Database Model (api/models.py)
-- the Serializer file goona add later inside the api folder == ➡️ Serializer (api/serializers.py) 
+### 🎞️ The project structure 
+<details>
+<summary>Press here to check how it look</summary>
+
+> Request ➡️ Main URLs (student_api/urls.py) ➡️ App URLs (api/urls.py) ➡️ View = Controllers (api/views.py) ➡️ Database Model (api/models.py)
+>>the Serializer file goona add later inside the api folder == ➡️ Serializer (api/serializers.py)
+>>
+**This almost how it will look like**
 ```
 hoot-backend/
 ├── .venv/
@@ -57,6 +61,8 @@ hoot-backend/
 ├── manage.py 
 └── requirements.txt 
 ```
+</details>
+
 - Create `.env` beside `manage.py`
 - and add these , fill needed info
 ```
@@ -71,7 +77,7 @@ DATABASE_PORT=5432
 ```
 ---
 ### Load the environment in settings 
-** in side `settings.py` that part of the created api `student_api` **
+***In side `settings.py` that part of the created api `student_api`***
 -  add the new imports `path` and `dotenv`:
 ```
 import os
@@ -123,7 +129,7 @@ DATABASES = {
     }
 }
 ```
-### Create Django built in tables
+### Create Django built-in tables
 - First create tabel the first `migrate` commant is to create tabel
 ```
 python manage.py migrate
@@ -141,12 +147,16 @@ python manage.py runserver
 | **`python manage.py migrate`** | Builds/updates database tables | First setup, or after running `makemigrations` |
 | **`python manage.py check`** | Scans project for code errors | Before running the server to catch setup bugs |
 | **`python manage.py runserver`** | Starts local HTTP dev server | Every time you want to test your API (` http://localhost:8000`) |
-#### Whenever you change your schema in `models.py`, always run:
-```
-python manage.py makemigrations
-```
+### 🛑 Important Django built-in tables rules
+Whenever you change your schema in `models.py`, always run:
+
+1. **`python manage.py makemigrations`** → Creates the blueprint file.
+2. **`python manage.py migrate`** → Executes the blueprint to build actual SQL tables.
+
+> **Note:** Forgetting to run `migrate` causes an `OperationalError: no such table` error when hitting your API endpoints.
 ---
 For more info --> [the hoot backend lesson](https://seb-bh.github.io/django-rest-hoots-backend/)
+
 
 
 
