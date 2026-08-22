@@ -154,6 +154,18 @@ Whenever you change your schema in `models.py`, always run:
 2. **`python manage.py migrate`** → Executes the blueprint to build actual SQL tables.
 
 > **Note:** Forgetting to run `migrate` causes an `OperationalError: no such table` error when hitting your API endpoints.
+
+**Main URL Routing Configuration `(student_api/urls.py)`**
+- Includes all API app routes at root/path
+```
+from django.contrib import admin
+from django.urls import path , include # remeber to add the include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path("", include("api.urls")),
+]
+```
 ---
 For more info --> [the hoot backend lesson](https://seb-bh.github.io/django-rest-hoots-backend/)
 
