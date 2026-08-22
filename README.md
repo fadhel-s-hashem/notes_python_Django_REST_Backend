@@ -61,7 +61,7 @@ hoot-backend/
 - and add these , fill needed info
 ```
 # generate secret key may use in terminal= node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-SECRET_KEY=  📌
+SECRET_KEY=  📌☝️
 DATABASE_ENGINE=django.db.backends.postgresql
 DATABASE_NAME=students_api #📌 Here put same created database name (createdb students_api)
 DATABASE_USER=  #📌 user name 
@@ -123,6 +123,24 @@ DATABASES = {
     }
 }
 ```
+### Create Django built in tables
+- First create tabel the first `migrate` commant is to create tabel
+```
+python manage.py migrate
+```
+- You can use the `check` command before running the server to catch setup bugs
+```
+python manage.py check
+```
+- finally start the server with `runserver`
+```
+python manage.py runserver
+```
+| Command | Action | When to Use |
+| :--- | :--- | :--- |
+| **`python manage.py migrate`** | Builds/updates database tables | First setup, or after running `makemigrations` |
+| **`python manage.py check`** | Scans project for code errors | Before running the server to catch setup bugs |
+| **`python manage.py runserver`** | Starts local HTTP dev server | Every time you want to test your API (` http://localhost:8000`) |
 
 
 
