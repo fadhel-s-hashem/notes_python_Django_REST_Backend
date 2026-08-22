@@ -141,6 +141,12 @@ python manage.py runserver
 | **`python manage.py migrate`** | Builds/updates database tables | First setup, or after running `makemigrations` |
 | **`python manage.py check`** | Scans project for code errors | Before running the server to catch setup bugs |
 | **`python manage.py runserver`** | Starts local HTTP dev server | Every time you want to test your API (` http://localhost:8000`) |
+#### Whenever you change your schema in `models.py`, always run:
+```
+python manage.py makemigrations
+```
+---
+For more info --> [the hoot backend lesson](https://seb-bh.github.io/django-rest-hoots-backend/)
 
 
 
