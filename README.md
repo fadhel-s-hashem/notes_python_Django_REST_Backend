@@ -27,6 +27,10 @@ python-dotenv>=1,<2
 ```bash
 pip install -r requirements.txt
 ```
+- some times it may needed to write `python -m ` if its denied
+```bash
+ python -m pip install -r requirements.txt
+```
 - Create the PostgreSQL database
 ```bash
 createdb students_api
