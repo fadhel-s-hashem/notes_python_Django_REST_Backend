@@ -159,6 +159,16 @@ Whenever you change your schema in `models.py`, always run:
 
 > **Note:** Forgetting to run `migrate` causes an `OperationalError: no such table` error when hitting your API endpoints.
 
+**Create `.gitignore` and add these before commiting**
+```
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+.env
+db.sqlite3
+```
+---
 **Main URL Routing Configuration `(student_api/urls.py)`**
 - Includes all API app routes at root/path
 ```
