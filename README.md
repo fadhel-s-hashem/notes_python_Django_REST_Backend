@@ -25,7 +25,7 @@ python-dotenv>=1,<2
 ```
 - Install core packages
 ```bash
-pip install django djangorestframework django-cors-headers
+pip install -r requirements.txt
 ```
 - Create the PostgreSQL database
 ```bash
